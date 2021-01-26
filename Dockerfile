@@ -1,7 +1,11 @@
 FROM jupyter/datascience-notebook:latest 
 
-RUN conda install jupyterlab jupyterlab-git kfp kfp-server-api kfserving kubernetes kubeflow-kale && \
-    jupyter labextension install kubeflow-kale-labextension
+RUN pip3 install jupyterlab jupyterlab-git kfp kfp-server-api kubernetes kubeflow-kale kfserving \
+    kubeflow-fairing && \
+    conda install -y -c conda-forge nodejs jupyter-lsp-python jupyterlab-git && \
+    jupyter labextension install kubeflow-kale-labextension && \
+    jupyter labextension install '@jupyter-widgets/jupyterlab-manager' && \
+    jupyter labextension install '@krassowski/jupyterlab-lsp'
 
 CMD ["sh", "-c", \
      "jupyter lab --notebook-dir=/home/jovyan --ip=0.0.0.0 --no-browser \

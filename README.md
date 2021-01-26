@@ -7,16 +7,18 @@ This notebook is built on the `jupyter/datasciene-notebook` and adds:
 
 ## Add to Kubeflow
 
-Use the following command to add this notebook to your Kubeflow installation:
+Use the following command to edit the configmap:
 
 ```sh
-
+NAMESPACE=kubeflow
+CONFIGMAP=$( kubectl get cm -n $NAMESPACE -l app=jupyter-web-app -o jsonpath="{$.items[0].metadata.name}")
+kubectl edit cm -n $NAMESPACE $CONFIGMAP
 ```
 
-Or this following, to soley use this image:
+In `data.spawner_ui_config.yaml`edit the list `spawnerFormDefaults.image.options`. Add/ replace the following:
 
-```sh
-
+```yml
+- docker.io/iptizer/kubeflow-datascience:latest
 ```
 
 ## Image
@@ -30,5 +32,6 @@ docker pull docker.io/library/iptizer/kubeflow-datascience
 Or build it locally:
 
 ```sh
-docker build .
+docker build . -t iptizer/kubeflow-datascience:latest
+docker push iptizer/kubeflow-datascience:latest
 ```
