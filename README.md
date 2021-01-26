@@ -15,10 +15,12 @@ CONFIGMAP=$( kubectl get cm -n $NAMESPACE -l app=jupyter-web-app -o jsonpath="{$
 kubectl edit cm -n $NAMESPACE $CONFIGMAP
 ```
 
-In `data.spawner_ui_config.yaml`edit the list `spawnerFormDefaults.image.options`. Add/ replace the following:
+In `data.spawner_ui_config.yaml`edit the list `spawnerFormDefaults.image.value` set the default image.
+
+In `data.spawner_ui_config.yaml`edit the list `spawnerFormDefaults.image.options`. Add/ replace the following as a list item.
 
 ```yml
-- docker.io/iptizer/kubeflow-datascience:latest
+docker.io/iptizer/kubeflow-datascience:latest
 ```
 
 ## Image
@@ -32,6 +34,7 @@ docker pull docker.io/library/iptizer/kubeflow-datascience
 Or build it locally:
 
 ```sh
+docker login docker.io
 docker build . -t iptizer/kubeflow-datascience:latest
-docker push iptizer/kubeflow-datascience:latest
+docker push docker.io/iptizer/kubeflow-datascience:latest
 ```
