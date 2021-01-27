@@ -11,7 +11,7 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
 WORKDIR /home/jovyan
 USER jovyan
 
-RUN pip install jupyterlab jupyterlab-git kfp kfp-server-api kubernetes kubeflow-kale kfserving \
+RUN pip3 install --upgrade pip3 && pip install jupyterlab jupyterlab-git kfp kfp-server-api kubernetes kubeflow-kale kfserving \
     kubeflow-fairing && \
     conda install -y -c conda-forge nodejs jupyter-lsp-python jupyterlab-git && \
     jupyter labextension install kubeflow-kale-labextension && \
