@@ -8,15 +8,19 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
     sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl && \
     kubectl version --client
 
-WORKDIR /home/jovyan
 USER jovyan
 
-RUN pip3 install --upgrade pip3 && pip install jupyterlab jupyterlab-git kfp kfp-server-api kubernetes kubeflow-kale kfserving \
-    kubeflow-fairing && \
-    conda install -y -c conda-forge nodejs jupyter-lsp-python jupyterlab-git && \
+WORKDIR /tmp/
+
+COPY ./pipenv /tmp/
+RUN pip install --upgrade pip && conda install -y -c conda-forge nodejs jupyter-lsp-python jupyterlab-git && \
+    pip install pipenv && pipenv install && \
     jupyter labextension install kubeflow-kale-labextension && \
     jupyter labextension install '@jupyter-widgets/jupyterlab-manager' && \
-    jupyter labextension install '@krassowski/jupyterlab-lsp'
+    jupyter labextension install '@krassowski/jupyterlab-lsp@2.1.2'
+
+
+WORKDIR /home/jovyan
 
 CMD ["sh", "-c", \
      "jupyter lab --notebook-dir=/home/jovyan --ip=0.0.0.0 --no-browser \
