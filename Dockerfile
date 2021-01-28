@@ -13,16 +13,19 @@ USER jovyan
 WORKDIR /tmp/
 
 COPY ./pipenv /tmp/
-RUN pip install --upgrade pip && conda install -y -c conda-forge nodejs jupyter-lsp-python jupyterlab-git && \
+RUN pip install --upgrade pip && \
+    conda install -y -c conda-forge 'jupyterlab>=2.2,<3.0.0a0' 'nodejs>=10.12,<15' \
+    'jupyter-lsp-python=0.9.3' jupyterlab-git ipympl && \
     pip install pipenv && pipenv install && \
     jupyter labextension install kubeflow-kale-labextension && \
     jupyter labextension install '@jupyter-widgets/jupyterlab-manager' && \
-    jupyter labextension install '@krassowski/jupyterlab-lsp@2.1.2'
+    jupyter labextension install '@krassowski/jupyterlab-lsp@2.1.2' && \
+    rm -rf /tmp/*
 
 
 WORKDIR /home/jovyan
 
 CMD ["sh", "-c", \
-     "jupyter lab --notebook-dir=/home/jovyan --ip=0.0.0.0 --no-browser \
-      --allow-root --port=8888 --LabApp.token='' --LabApp.password='' \
-      --LabApp.allow_origin='*' --LabApp.base_url=${NB_PREFIX}"]
+    "jupyter lab --notebook-dir=/home/jovyan --ip=0.0.0.0 --no-browser \
+    --allow-root --port=8888 --LabApp.token='' --LabApp.password='' \
+    --LabApp.allow_origin='*' --LabApp.base_url=${NB_PREFIX}"]
