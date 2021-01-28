@@ -17,9 +17,11 @@ RUN pip install --upgrade pip && \
     conda install -y -c conda-forge 'jupyterlab>=2.2,<3.0.0a0' 'nodejs>=10.12,<15' \
     'jupyter-lsp-python=0.9.3' jupyterlab-git ipympl && \
     pip install pipenv && pipenv install && \
-    jupyter labextension install kubeflow-kale-labextension && \
     jupyter labextension install '@jupyter-widgets/jupyterlab-manager' && \
+    jupyter labextension install kubeflow-kale-labextension && \
+    jupyter labextension install @lckr\jupyterlab_variableinspector && \
     jupyter labextension install '@krassowski/jupyterlab-lsp@2.1.2' && \
+    jupyter lab build && \
     rm -rf /tmp/*
 
 
