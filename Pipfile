@@ -4,13 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-
 boto3 = "*"
 jupyterlab-git = "*"
 kfp = "*"
 kfp-server-api = "*" 
-kubernetes 
-kubeflow-kale 
-kfserving
-kubeflow-fairing
+kubernetes = "*"
+kubeflow-kale = "*"
+kfserving = "*"
+kubeflow-fairing = "*"
 httplib2 = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

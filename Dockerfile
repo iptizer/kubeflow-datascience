@@ -12,7 +12,7 @@ USER jovyan
 
 WORKDIR /tmp/
 
-COPY ./pipenv /tmp/
+COPY ./Pipfile /tmp/
 RUN pip install --upgrade pip && \
     conda install -y -c conda-forge 'jupyterlab>=2.2,<3.0.0a0' 'nodejs>=10.12,<15' \
     'jupyter-lsp-python=0.9.3' jupyterlab-git ipympl && \
