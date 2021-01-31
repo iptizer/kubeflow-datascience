@@ -36,7 +36,7 @@ docker pull docker.io/library/iptizer/kubeflow-datascience
 Or build it locally:
 
 ```sh
-docker login docker.io
-docker build . -t iptizer/kubeflow-datascience:latest
+docker login docker.io && \
+docker build . -t iptizer/kubeflow-datascience:latest && \
 docker push docker.io/iptizer/kubeflow-datascience:latest
 ```

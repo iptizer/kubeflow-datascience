@@ -14,10 +14,9 @@ WORKDIR /tmp/
 
 COPY ./Pipfile /tmp/
 RUN pip install --upgrade pip && \
-    pip install pipenv && pipenv install && \
+    pip install pipenv && pipenv lock && pipenv install && \
     jupyter labextension install '@jupyter-widgets/jupyterlab-manager' && \
     jupyter labextension install kubeflow-kale-labextension && \
-    jupyter labextension install @lckr\jupyterlab_variableinspector && \
     jupyter labextension install '@krassowski/jupyterlab-lsp@2.1.2' && \
     jupyter lab build && \
     rm -rf /tmp/*
