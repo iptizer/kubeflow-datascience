@@ -5,7 +5,6 @@ USER root
 WORKDIR /tmp/
 
 COPY ./Pipfile /tmp/
-RUN 
 
 # see docs here https://jupyterlab-lsp.readthedocs.io/en/2.x/Installation.html
 # consult 3.x docs when kale is readyfor jupyterlab 3
