@@ -10,7 +10,7 @@ kfp = "*"
 kfp-server-api = "*" 
 kubernetes = "*"
 kubeflow-kale = "*"
-kfserving = "*"
+#kfserving = "*"
 kubeflow-fairing = "*"
 httplib2 = "*"
 
