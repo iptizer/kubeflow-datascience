@@ -11,7 +11,7 @@ kfp-server-api = "*"
 kubernetes = "*"
 kubeflow-kale = "*"
 #kfserving = "*"
-kubeflow-fairing = "*"
+#kubeflow-fairing = "*"
 httplib2 = "*"
 
 [dev-packages]
