@@ -1,5 +1,7 @@
 # kubeflow-datascience
 
+<img alt="Docker Cloud Build Status" src="https://img.shields.io/docker/cloud/build/iptizer/kubeflow-datascience"><img alt="Docker Cloud Automated build" src="https://img.shields.io/docker/cloud/automated/iptizer/kubeflow-datascience">
+
 This notebook is built on the `jupyter/datasciene-notebook` and adds:
 
 * Kale - JupyterLab extension that simplifies deploying Kubeflow pipelines.
