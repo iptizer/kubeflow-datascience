@@ -9,10 +9,17 @@ jupyterlab-git = "*"
 kfp = "*"
 kfp-server-api = "*" 
 kubernetes = "*"
-kubeflow-kale = "*"
+kubeflow-kale = ">=0.6.0"
 #kfserving = "*"
 #kubeflow-fairing = "*"
 httplib2 = "*"
+
+# from conda
+jupyterlab = ">=3.0.0,<4.0.0a0"
+jupyterlab-lsp = "*"
+python-language-server = "*"
+#nodejs = ">=10.12,<15"
+#ipympl = "*"
 
 [dev-packages]
 
