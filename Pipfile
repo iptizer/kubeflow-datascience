@@ -4,14 +4,22 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-#boto3 = "*"
+boto3 = "*"
 jupyterlab-git = "*"
-kfp = "*"
-kfp-server-api = "*" 
-#kubernetes = "*"
-kubeflow-kale = ">=0.6.0"
+
+# kubeflow-kale has dependencies to
+#   * kfp
+#   * kfp-server-api
+#   * kfserving
+#   * kubeflow-fairing
+#   * kubernetes
+# => therefore this dfoes not need to be installed seperately
+kubeflow-kale = ">=0.6.1"
+#kfp = "*"
+#kfp-server-api = "*" 
 #kfserving = "*"
 #kubeflow-fairing = "*"
+#kubernetes = "*"
 
 [dev-packages]
 
