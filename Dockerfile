@@ -6,7 +6,7 @@ USER root
 # consult 3.x docs when kale is readyfor jupyterlab 3
 RUN conda install --quiet --yes --freeze-installed -c conda-forge \
     'python-language-server' \
-    'jupyterlab=2.2.0' \
+    'jupyterlab>=2.2.0,<3.0.0a0' \
     'r-languageserver' \
     'texlab' \
     'chktex' \
