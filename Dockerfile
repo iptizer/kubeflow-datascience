@@ -22,10 +22,9 @@ RUN pip install --upgrade pip && \
     jupyter labextension install '@krassowski/jupyterlab-lsp@2.1.2' && \
     rm -rf /tmp/*
 
+COPY ./start_jupyterlab.sh /usr/local/bin/
+RUN chmod a+x /usr/local/bin/start_jupyterlab.sh
 
 WORKDIR /home/jovyan
 
-CMD ["sh", "-c", \
-    "jupyter lab --notebook-dir=/home/jovyan --ip=0.0.0.0 --no-browser \
-    --allow-root --port=8888 --LabApp.token='' --LabApp.password='' \
-    --LabApp.allow_origin='*' --LabApp.base_url=${NB_PREFIX}"]
+CMD ["/usr/local/bin/start_jupyterlab.sh"]
