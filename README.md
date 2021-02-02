@@ -1,9 +1,13 @@
 # kubeflow-datascience
 
-This notebook is built on the `jupyter/datasciene-notebook` and adds:
+<img alt="Docker Cloud Build Status" src="https://img.shields.io/docker/cloud/build/iptizer/kubeflow-datascience"> <img alt="Docker Cloud Automated build" src="https://img.shields.io/docker/cloud/automated/iptizer/kubeflow-datascience">
 
-* Kale - JupyterLab extension that simplifies deploying Kubeflow pipelines.
-* Few other nice-to-have JupyterLab extensions.
+This notebook is built on the `jupyter/datascience-notebook` and adds:
+
+* boto3 - Access AWS through Python
+* jupyterlab extensions
+  * Language server
+  * Kale - JupyterLab extension that simplifies deploying Kubeflow pipelines.
 
 ## Add to Kubeflow
 
@@ -34,7 +38,7 @@ docker pull docker.io/library/iptizer/kubeflow-datascience
 Or build it locally:
 
 ```sh
-docker login docker.io
-docker build . -t iptizer/kubeflow-datascience:latest
+docker login docker.io && \
+docker build . -t iptizer/kubeflow-datascience:latest && \
 docker push docker.io/iptizer/kubeflow-datascience:latest
 ```

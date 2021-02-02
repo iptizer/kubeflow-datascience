@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+#boto3 = "*"
+jupyterlab-git = "*"
+
+# kubeflow-kale has dependencies to
+#   * kfp
+#   * kfp-server-api
+#   * kfserving
+#   * kubeflow-fairing
+#   * kubernetes
+# => therefore this dfoes not need to be installed seperately
+kubeflow-kale = ">=0.6.1"
+#kfp = "*"
+#kfp-server-api = "*" 
+#kfserving = "*"
+#kubeflow-fairing = "*"
+#kubernetes = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
