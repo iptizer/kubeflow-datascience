@@ -4,7 +4,8 @@ NB_HOME="/home/jovyan"
 
 # create kfp config
 if [[ -f /run/secrets/kubernetes.io/serviceaccount/namespace ]]; then
-    echo "{\"namespace\": \"$(cat /run/secrets/kubernetes.io/serviceaccount/namespace)\"}" >/.config/kfp/context.json
+    mkdir -p ${NB_HOME}/.config/kfp/
+    echo "{\"namespace\": \"$(cat /run/secrets/kubernetes.io/serviceaccount/namespace)\"}" >${NB_HOME}/.config/kfp/context.json
 fi
 
 jupyter lab --notebook-dir=/home/${NB_HOME} --ip=0.0.0.0 --no-browser \
