@@ -35,20 +35,6 @@ COPY ./start_jupyterlab.sh /usr/local/bin/
 RUN chmod a+x /usr/local/bin/start_jupyterlab.sh && \
     echo "jovyan ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/jovyan
 
-USER jovyan
-
-WORKDIR /tmp/
-
-COPY ./pipenv /tmp/
-RUN pip install --upgrade pip && \
-    conda install -y -c conda-forge 'jupyterlab>=2.2,<3.0.0a0' 'nodejs>=10.12,<15' \
-    'jupyter-lsp-python=0.9.3' jupyterlab-git ipympl && \
-    pip install pipenv && pipenv install && \
-    jupyter labextension install kubeflow-kale-labextension && \
-    jupyter labextension install '@jupyter-widgets/jupyterlab-manager' && \
-    jupyter labextension install '@krassowski/jupyterlab-lsp@2.1.2' && \
-    rm -rf /tmp/*
-
 WORKDIR /home/jovyan
 
 CMD ["/usr/local/bin/start_jupyterlab.sh"]
