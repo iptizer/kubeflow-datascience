@@ -17,7 +17,7 @@ jupyterlab-git = "*"
 #kubeflow-kale = ">=0.6.1"
 kfp = "*"
 kfp-server-api = "*" 
-kfserving = "*"
+#kfserving = "*"
 kubeflow-fairing = "*"
 kubernetes = "*"
 
