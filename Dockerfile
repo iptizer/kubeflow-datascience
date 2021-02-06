@@ -20,7 +20,7 @@ RUN conda install --quiet --yes --freeze-installed -c conda-forge \
     && pip install pipenv && pipenv lock && PIP_IGNORE_INSTALLED=1 pipenv install --system --deploy \
     && rm -rf /tmp/* \
     && jupyter labextension install --no-build '@jupyter-widgets/jupyterlab-manager' \
-    && jupyter labextension install --no-build kubeflow-kale-labextension \
+    #&& jupyter labextension install --no-build kubeflow-kale-labextension \
     && jupyter labextension install --no-build '@krassowski/jupyterlab-lsp@2.1.2' \
     && jupyter lab build --dev-build=False --minimize=True \
     && conda clean --all -f -y
