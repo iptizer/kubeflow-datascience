@@ -4,7 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-boto3 = "*"
+# fairing has dependency to boto3
+#boto3 = "*"
 jupyterlab-git = "*"
 
 # kubeflow-kale has dependencies to
@@ -18,8 +19,8 @@ jupyterlab-git = "*"
 kfp = "*"
 kfp-server-api = "*" 
 #kfserving = "*"
-kubeflow-fairing = "*"
-kubernetes = "*"
+#kubeflow-fairing = "*"
+#kubernetes = "*"
 
 [dev-packages]
 
