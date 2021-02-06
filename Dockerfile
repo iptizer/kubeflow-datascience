@@ -36,5 +36,6 @@ RUN chmod a+x /usr/local/bin/start_jupyterlab.sh && \
     echo "jovyan ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/jovyan
 
 WORKDIR /home/jovyan
+USER jovyan
 
 CMD ["/usr/local/bin/start_jupyterlab.sh"]
