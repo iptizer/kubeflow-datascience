@@ -1,10 +1,10 @@
 FROM jupyter/datascience-notebook:lab-2.2.9
 
-USER root
-
-WORKDIR /tmp/
-
-COPY ./Pipfile /tmp/
+COPY requirements.txt /home/jovyan/
+RUN pip install --upgrade pip \
+    && pip uninstall -y distributed \
+    && pip install -r requirements.txt \
+    && rm /home/jovyan/requirements.txt
 
 # see docs here https://jupyterlab-lsp.readthedocs.io/en/2.x/Installation.html
 # consult 3.x docs when kale is readyfor jupyterlab 3
@@ -16,14 +16,14 @@ RUN conda install --quiet --yes --freeze-installed -c conda-forge \
     'chktex' \
     'nodejs' \
     'jupyter-lsp=0.9.3' \
-    && pip install --upgrade pip \
-    && pip install pipenv && pipenv lock && PIP_IGNORE_INSTALLED=1 pipenv install --system --deploy \
-    && rm -rf /tmp/* \
     && jupyter labextension install --no-build '@jupyter-widgets/jupyterlab-manager' \
     #&& jupyter labextension install --no-build kubeflow-kale-labextension \
     && jupyter labextension install --no-build '@krassowski/jupyterlab-lsp@2.1.2' \
     && jupyter lab build --dev-build=False --minimize=True \
     && conda clean --all -f -y
+
+USER root
+WORKDIR /root/
 
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
     curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256" && \
@@ -35,7 +35,7 @@ COPY ./start_jupyterlab.sh /usr/local/bin/
 RUN chmod a+x /usr/local/bin/start_jupyterlab.sh && \
     echo "jovyan ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/jovyan
 
-WORKDIR /home/jovyan
 USER jovyan
+WORKDIR /home/jovyan
 
 CMD ["/usr/local/bin/start_jupyterlab.sh"]
