@@ -1,8 +1,13 @@
 jupyterlab-git
+
 kubeflow-fairing==1.0.2
+
 kubeflow-kale==0.6.1
 # kale also installs
 #   * kfp
 #   * kfp-server-api
 #   * kfserving
 #   * kubernetes
+
+# required for fairing
+msrestazure
