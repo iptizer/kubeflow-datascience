@@ -6,3 +6,4 @@ kubeflow-kale==0.6.1
 #   * kfp-server-api
 #   * kfserving
 #   * kubernetes
+msrestazure
