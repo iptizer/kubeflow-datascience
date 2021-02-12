@@ -11,3 +11,5 @@ kubeflow-kale==0.6.1
 
 # required for fairing
 msrestazure
+
+awscli
