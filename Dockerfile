@@ -17,7 +17,7 @@ RUN conda install --quiet --yes --freeze-installed -c conda-forge \
     'nodejs' \
     'jupyter-lsp=0.9.3' \
     && jupyter labextension install --no-build '@jupyter-widgets/jupyterlab-manager' \
-    #&& jupyter labextension install --no-build kubeflow-kale-labextension \
+    && jupyter labextension install --no-build kubeflow-kale-labextension \
     && jupyter labextension install --no-build '@krassowski/jupyterlab-lsp@2.1.2' \
     && jupyter lab build --dev-build=False --minimize=True \
     && conda clean --all -f -y
