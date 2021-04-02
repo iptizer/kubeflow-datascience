@@ -1,6 +1,6 @@
 jupyterlab-git
 
-kubeflow-fairing==1.0.2
+#kubeflow-fairing==1.0.2
 
 kfp
 kfp-server-api
@@ -18,3 +18,6 @@ kubernetes
 msrestazure
 
 awscli
+
+# https://elyra.readthedocs.io/en/latest/
+elyra

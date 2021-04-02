@@ -1,4 +1,4 @@
-FROM jupyter/datascience-notebook:lab-2.2.9
+FROM jupyter/datascience-notebook
 
 COPY requirements.txt /home/jovyan/
 RUN pip install --upgrade pip \
@@ -10,16 +10,16 @@ RUN pip install --upgrade pip \
 # consult 3.x docs when kale is readyfor jupyterlab 3
 RUN conda install --quiet --yes --freeze-installed -c conda-forge \
     'python-language-server' \
-    'jupyterlab>=2.2.0,<3.0.0a0' \
+    'jupyterlab>=3.0.0,<4.0.0a0' \
     'r-languageserver' \
     'texlab' \
     'chktex' \
     'nodejs' \
-    'jupyter-lsp=0.9.3' \
+    'jupyter-lsp' \
     && jupyter labextension install --no-build '@jupyter-widgets/jupyterlab-manager' \
     #&& jupyter labextension install --no-build kubeflow-kale-labextension \
     #&& jupyter labextension disable kubeflow-kale-labextension \
-    && jupyter labextension install --no-build '@krassowski/jupyterlab-lsp@2.1.2' \
+    && jupyter labextension install --no-build '@krassowski/jupyterlab-lsp' \
     && jupyter lab build --dev-build=False --minimize=True \
     && conda clean --all -f -y
 

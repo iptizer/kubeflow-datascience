@@ -4,9 +4,9 @@
 
 This notebook is built on the `jupyter/datascience-notebook` and adds:
 
-* boto3 - Access AWS through Python
-* jupyterlab extensions
-  * Language server
+* [boto3 - Access AWS through Python](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+* [Elyra pipeline editor](https://elyra.readthedocs.io/en/latest/)
+* [Jupyterlab Language server for R and Python](https://github.com/krassowski/jupyterlab-lsp)
 
 TODO (not implemented):
   * Kale - JupyterLab extension that simplifies deploying Kubeflow pipelines.
