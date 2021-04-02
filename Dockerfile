@@ -15,7 +15,7 @@ RUN conda install --quiet --yes --freeze-installed -c conda-forge \
     'texlab' \
     'chktex' \
     'nodejs' \
-    'jupyter-lsp' \
+    'jupyterlab-lsp' \
     && jupyter labextension install --no-build '@jupyter-widgets/jupyterlab-manager' \
     #&& jupyter labextension install --no-build kubeflow-kale-labextension \
     #&& jupyter labextension disable kubeflow-kale-labextension \
