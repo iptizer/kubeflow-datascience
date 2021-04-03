@@ -21,3 +21,5 @@ awscli
 
 # https://elyra.readthedocs.io/en/latest/
 elyra
+
+plotly
