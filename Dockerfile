@@ -25,6 +25,7 @@ RUN conda install --quiet --yes --freeze-installed -c conda-forge \
     #&& jupyter labextension disable kubeflow-kale-labextension \
     && jupyter labextension install --no-build '@krassowski/jupyterlab-lsp' \
     && jupyter labextension install --no-build 'jupyterlab-plotly' \
+    && jupyter labextension install --no-build 'jupyterlab-dash' \
     #&& jupyter labextension disable \
     #"@elyra/code-snippet-extension,@elyra/metadata-extension,@elyra/pipeline-editor-extension,@elyra/python-editor-extension,@elyra/r-editor-extension,@elyra/theme-extension" \
     && jupyter lab build --dev-build=False --minimize=True \
