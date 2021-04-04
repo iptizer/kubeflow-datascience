@@ -10,6 +10,10 @@ RUN pip install --upgrade pip \
 # consult 3.x docs when kale is readyfor jupyterlab 3
 RUN conda install --quiet --yes --freeze-installed -c conda-forge \
     'python-language-server' \
+    # 'bash-language-server' \
+    # 'julia-language-server' \
+    # 'yaml-language-server' \
+    # 'unified-language-server' \
     'jupyterlab>=3.0.0,<4.0.0a0' \
     'r-languageserver' \
     'texlab' \
@@ -20,7 +24,7 @@ RUN conda install --quiet --yes --freeze-installed -c conda-forge \
     #&& jupyter labextension install --no-build kubeflow-kale-labextension \
     #&& jupyter labextension disable kubeflow-kale-labextension \
     && jupyter labextension install --no-build '@krassowski/jupyterlab-lsp' \
-    && jupyter labextension install --no-build 'jupyterlab-plotly-extension' \
+    && jupyter labextension install --no-build 'jupyterlab-plotly' \
     #&& jupyter labextension disable \
     #"@elyra/code-snippet-extension,@elyra/metadata-extension,@elyra/pipeline-editor-extension,@elyra/python-editor-extension,@elyra/r-editor-extension,@elyra/theme-extension" \
     && jupyter lab build --dev-build=False --minimize=True \
