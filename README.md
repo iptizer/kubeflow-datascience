@@ -25,6 +25,12 @@ In `data.spawner_ui_config.yaml`edit the list `spawnerFormDefaults.image.options
 docker.io/iptizer/kubeflow-datascience:latest
 ```
 
+After that, you need to restart the rollout of the deployment:
+
+```sh
+kubectl rollout restart deploy/jupyter-web-app-deployment -n kubeflow
+```
+
 ## Image
 
 This image is available on [https://hub.docker.com/repository/docker/iptizer/kubeflow-datascience](https://hub.docker.com/repository/docker/iptizer/kubeflow-datascience) or may be pulled with the following command:
