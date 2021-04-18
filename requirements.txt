@@ -24,3 +24,4 @@ awscli
 
 plotly
 dash
+jupyter-dash
